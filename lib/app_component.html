@@ -1,13 +1,6 @@
 <h1>{{title}}</h1>
 <!-- heroを選択している時だけ表示する！ -->
-<div *ngIf="selected != null">
-    <h2>{{selected.name}}</h2>
-    <div><label>id: </label>{{selected.id}}</div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="selected.name" placeholder="name">
-    </div>
-</div>
+<my-hero [hero]="selected"></my-hero>
 <h2>Heroes</h2>
 <ul class="heroes">
     <!-- heroes内の要素数分繰り返す！ -->
