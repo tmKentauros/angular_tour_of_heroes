@@ -1,5 +1,7 @@
 import 'package:angular/angular.dart';
 
+import 'dart:async';
+
 import 'src/hero.dart';
 
 import 'src/hero_component.dart';
@@ -14,10 +16,9 @@ import 'src/hero_service.dart';
 )
 class AppComponent implements OnInit {
   final title = 'Tour of Heroes';
+  final HeroService _heroService;
   List<Hero> heroes;
   Hero selected;
-
-  final HeroService _heroService;
 
   AppComponent(this._heroService);
 
@@ -25,7 +26,7 @@ class AppComponent implements OnInit {
 
   void ngOnInit() => _getHeroes();
 
-  void _getHeroes() {
-    heroes = _heroService.getAll();
+  Future<void> _getHeroes() async {
+    heroes = await _heroService.getAll();
   }
 }
