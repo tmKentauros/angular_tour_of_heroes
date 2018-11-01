@@ -1,11 +1,2 @@
 <h1>{{title}}</h1>
-<!-- heroを選択している時だけ表示する！ -->
-<my-hero [hero]="selected"></my-hero>
-<h2>Heroes</h2>
-<ul class="heroes">
-    <!-- heroes内の要素数分繰り返す！ -->
-    <li *ngFor="let hero of heroes" [class.selected]="hero === selected" (click)="onSelect(hero)">
-        <!-- heroを表示する！ -->
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </li>
-</ul>
+<my-heroes></my-heroes>
