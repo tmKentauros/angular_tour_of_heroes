@@ -17,8 +17,14 @@ class Routes {
     component: dashboard_template.DashboardComponentNgFactory,
   );
 
+  static final redirect = RouteDefinition.redirect(
+    path: '',
+    redirectTo: RoutePaths.dashboard.toUrl(),
+  );
+
   static final all = <RouteDefinition>[
     heroes,
     dashboard,
+    redirect,
   ];
 }
