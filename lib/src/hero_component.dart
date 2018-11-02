@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
@@ -29,6 +31,11 @@ class HeroComponent implements OnActivate {
   int getId(Map<String, String> parameters) {
     final id = parameters[idParam];
     return id == null ? null : int.tryParse(id);
+  }
+
+  Future<void> save() async {
+    await _heroService.update(hero);
+    goBack();
   }
 
   void goBack() => _location.back();
