@@ -43,4 +43,10 @@ class HeroListComponent implements OnInit {
     heroes.add(await _heroService.create(name));
     selected = null;
   }
+
+  Future<void> delete(Hero hero) async {
+    await _heroService.delete(hero.id);
+    heroes.remove(hero);
+    if (selected == hero) selected = null;
+  }
 }
